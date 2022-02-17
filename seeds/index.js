@@ -1,21 +1,21 @@
-const seedUser = require("./user-seeds");
-const seedPost = require("./post-seeds");
-const seedComment = require("./comment-seeds");
+const seedUsers = require("./user-seeds");
+const seedPosts = require("./post-seeds");
+const seedComments = require("./comment-seeds");
 
-const sequelize =require("../config/connections")
+const sequelize =require("../config/connection")
 
 const seedAll = async () => {
 
     await sequelize.sync({ force: true});
     console.log("\n----- DATABASE SYNCED -----\n");
 
-    await seedUser();
+    await seedUsers();
     console.log("\n----- USERS SEEDED -----\n");
 
-    await seedPost();
+    await seedPosts();
     console.log("\n----- USERS SEEDED -----\n");
 
-    await seedComment();
+    await seedComments();
     console.log("\n----- USERS SEEDED -----\n");
 
     process.exit(0);

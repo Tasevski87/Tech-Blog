@@ -7,5 +7,5 @@ Post.init(
     }
 )
 
-const seedPost = () => Post.bulkcreate(postData);
-module.exports = seedPost;
+const seedPosts = () => Post.bulkCreate(postData);
+module.exports = seedPosts;
