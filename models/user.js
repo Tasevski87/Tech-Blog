@@ -25,7 +25,7 @@ User.init(
                 len: [4]
             }
         },
-        sequelize,
+        sequelize: sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,

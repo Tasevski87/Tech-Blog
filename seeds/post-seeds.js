@@ -1,11 +1,11 @@
 const { Post } = require("../models")
 
-Post.init(
+const postData = [
     {
         title: "test",
         user_id: 1,
-    }
-)
+    },
+]
 
-const seedPosts = () => Post.bulkCreate(postData);
-module.exports = seedPosts;
+const seedPost = () => Post.bulkCreate(postData);
+module.exports = seedPost;

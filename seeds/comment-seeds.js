@@ -6,10 +6,10 @@ const commentData = [
         user_id: 1,
         post_id: 1,
 
-    }
+    },
 ];
 
 
-const seedComments = () => Comment.bulkCreate (commentData);
+const seedComment = () => Comment.bulkCreate (commentData);
 
-module.exports = seedComments;
+module.exports = seedComment;
