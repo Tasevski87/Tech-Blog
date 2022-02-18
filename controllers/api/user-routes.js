@@ -51,7 +51,7 @@ router.post("/", (req, res) => {
         });
 });
 
-router.put("/:id", withAuth, (req, res) => {
+router.put("/:id", (req, res) => {
     User.update(req.body, {
 
         where: {

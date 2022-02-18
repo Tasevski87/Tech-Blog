@@ -2,7 +2,7 @@ const Post = require("./Post");
 const User = require("./User");
 const Comment = require("./Comment");
 
-//create relationships
+// create relationships
 Post.belongsTo(User, {
     foreignKey: "user_id",
     onDelete: "SET NULL",
@@ -31,4 +31,4 @@ Comment.belongsTo(User, {
     onDelete: "SET NULL",
 })
 
-module.exports = { Post, User, Comment};
+module.exports = { Post, Comment, User};

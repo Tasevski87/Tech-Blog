@@ -7,5 +7,5 @@ const postData = [
     },
 ]
 
-const seedPost = () => Post.bulkCreate(postData);
-module.exports = seedPost;
+const seedPosts = () => Post.bulkCreate(postData);
+module.exports = seedPosts;

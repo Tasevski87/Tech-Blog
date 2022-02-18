@@ -34,7 +34,7 @@ router.get("/:id", (req, res) => {
 });
 
 // POST api/comment
-router.post("/", withAuth, (req, res) => {
+router.post("/", (req, res) => {
     // if (req.session) {
     Comment.create({
         comment_text: req.body.comment_text,
@@ -50,7 +50,7 @@ router.post("/", withAuth, (req, res) => {
 });
 
 // DELETE api/comment/1
-router.delete("/:id", withAuth, (req, res) => {
+router.delete("/:id", (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id,
