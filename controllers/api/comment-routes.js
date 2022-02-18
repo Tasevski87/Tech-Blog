@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const withAuth = require("../../utils/auth");
 const { Comment } = require("../../models")
 
 
@@ -13,9 +13,10 @@ router.get("/", (req, res) => {
         });
 });
 
+// GET /api/comment/1
 router.get("/:id", (req, res) => {
     Comment.findOne({
-
+        attributes: { exclude: ["password"] },
         where: {
             id: req.params.id,
         },
@@ -34,11 +35,11 @@ router.get("/:id", (req, res) => {
 });
 
 // POST api/comment
-router.post("/", (req, res) => {
+router.post("/",withAuth, (req, res) => {
     // if (req.session) {
     Comment.create({
         comment_text: req.body.comment_text,
-        user_id: req.user_id,
+        user_id: req.session.user_id,
         post_id: req.body.post_id,
     })
         .then((dbCommentData) => res.json(dbCommentData))
@@ -50,7 +51,7 @@ router.post("/", (req, res) => {
 });
 
 // DELETE api/comment/1
-router.delete("/:id", (req, res) => {
+router.delete("/:id",withAuth, (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id,
