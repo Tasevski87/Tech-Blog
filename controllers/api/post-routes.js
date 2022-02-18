@@ -7,21 +7,8 @@ const { Post, Comment, User } = require("../../models")
 //route get all posts 
 
 router.get("/", (req, res) => {
-    Post.findall({
-        include: [
-            {
-                model: Comment,
-                attributes: ["id, comment_text, user_id, post_id"],
-                include: {
-                    model: User,
-                    attributes: ["username"],
-                },
-            },
-            {
-                model: User,
-                attributes: ["username"],
-            },
-        ],
+    Post.findAll({
+        include: [Comment, User]
     }).then((dbpostData) => res.json(dbpostData))
         .catch((err) => {
             console.log(err);
