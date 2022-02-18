@@ -8,21 +8,40 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
+
+
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>
-                <a href="/">Tech Blog</a>
-            </h1>
+    <div class="wrapper" <header>
+
+        <h1>
+            <a href="/">Tech blog</a>
+        </h1>
+
+        <nav>
+            {{#if loggedIn}}
+
+            <button id="logout" class="btn-no-style">logout</button>
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+        </nav>
         </header>
         <main>
             {{{ body }}}
+
         </main>
         <footer>
-            Thanks for visiting!
+            Thanks for visiting come back!
         </footer>
     </div>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 
+
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="/main.js"></script>
+    
 </body>
 
 </html>
