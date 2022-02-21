@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
+const sequielize = require('../config/connection')
 
 // get a single project for view
 router.get("/project/:id", (req, res) => {
@@ -7,14 +8,13 @@ router.get("/project/:id", (req, res) => {
         where: {
             id: req.params.id,
         },
-        attributes: ["id", "title", "content", "user_id"],
+        attributes: ["id", "title", "content"],
         include: [
             {
                 model: Comment,
                 attributes: [
                     "id",
                     "comment_text",
-                    "post_id",
                     "user_id",
                     "created_at",
                 ],
@@ -52,7 +52,7 @@ router.get("/project/:id", (req, res) => {
 router.get("/", (req, res) => {
     Post.findAll({
         order: [["id", "DESC"]],
-        attributes: ["id", "title", "content", "created_at","user_id"],
+        attributes: ["id", "title", "content", "created_at"],
         include: [
             {
                 model: Comment,
