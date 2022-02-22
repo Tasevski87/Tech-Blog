@@ -2,8 +2,8 @@ const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
 const sequielize = require('../config/connection')
 
-// get a single project for view
-router.get("/project/:id", (req, res) => {
+// get a single post for view
+router.get("/post/:id", (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id,
@@ -34,12 +34,12 @@ router.get("/project/:id", (req, res) => {
     })
         .then((dbpostData) => {
             if (!dbpostData) {
-                res.status(404).json({ message: "No project found with this id" });
+                res.status(404).json({ message: "No post found with this id" });
                 return;
             }
 
             const post = dbpostData.get({ plain: true });
-            // render single project page, send project data and loggedIn
+            // render single post page, send post data and loggedIn
             res.render("single-post", {
                 post,
                 loggedIn: req.session.loggedIn,
@@ -51,7 +51,7 @@ router.get("/project/:id", (req, res) => {
         });
 });
 
-// get projects for homepage
+// get post for homepage
 router.get("/", (req, res) => {
     Post.findAll({
         order: [["id", "DESC"]],

@@ -1,6 +1,6 @@
 <article class="post">
     <div class="title">
-        <span>({{post.post_id}})</span>
+        <span>{{post.post_id}}<strong>{{title}}</strong></span>
     </div>
     <div class="meta">
         {{content}}
@@ -9,7 +9,6 @@
         <br />
         {{created_at}}
         <br />
-        
-        <a href="/comment/">{{length}} Comment</a>
+        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
     </div>
 </article>

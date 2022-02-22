@@ -3,9 +3,9 @@ const { Post } = require("../models")
 const postData = [
     
     {
-        title: "Donec posuere metus vitae ipsum.",
+        title: "Tech Blog.",
         content:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam maiores molestiae modi enim necessitatibus eveniet sunt quidem, voluptatibus quae a officia, debitis excepturi magnam dolorum nesciunt molestias dolores ratione quam.",
+            "Tech Blog is homework .",
         user_id: 10,
     },
     {

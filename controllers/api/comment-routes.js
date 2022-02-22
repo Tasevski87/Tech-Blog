@@ -14,25 +14,25 @@ router.get("/", (req, res) => {
 });
 
 // GET /api/comment/1
-router.get("/:id", (req, res) => {
-    Comment.findOne({
-        attributes: { exclude: ["password"] },
-        where: {
-            id: req.params.id,
-        },
-    })
-        .then((dbCommentData) => {
-            if (!dbCommentData) {
-                res.status(404).json({ message: "No comment found with this id" });
-                return;
-            }
-            res.json(dbCommentData);
-        })
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
+// router.get("/:id", (req, res) => {
+//     Comment.findOne({
+//         attributes: { exclude: ["password"] },
+//         where: {
+//             id: req.params.id,
+//         },
+//     })
+//         .then(dbCommentData => {
+//             if (!dbCommentData) {
+//                 res.status(404).json({ message: "No comment found with this id" });
+//                 return;
+//             }
+//             res.json(dbCommentData);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// });
 
 // POST api/comment
 router.post("/",withAuth, (req, res) => {
