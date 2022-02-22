@@ -8,7 +8,10 @@ router.get("/project/:id", (req, res) => {
         where: {
             id: req.params.id,
         },
-        attributes: ["id", "title", "content"],
+        attributes: [
+            "id",
+            "title",
+            "content"],
         include: [
             {
                 model: Comment,
@@ -20,12 +23,12 @@ router.get("/project/:id", (req, res) => {
                 ],
                 include: {
                     model: User,
-                    attributes: { exclude: ["password"] },
+                    attributes: ['username']
                 },
             },
             {
                 model: User,
-                attributes: { exclude: ["password"] },
+                attributes: ['username']
             },
         ],
     })
@@ -52,10 +55,19 @@ router.get("/project/:id", (req, res) => {
 router.get("/", (req, res) => {
     Post.findAll({
         order: [["id", "DESC"]],
-        attributes: ["id", "title", "content", "created_at"],
+        attributes: [
+            "id",
+            "title",
+            "content",
+            "created_at"],
         include: [
             {
                 model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
             },
             {
                 model: User,
@@ -64,13 +76,17 @@ router.get("/", (req, res) => {
         ],
     })
         .then((dbpostData) => {
-            const post = dbpostData.map((post) =>
+            const post = dbpostData.map(post =>
                 post.get({ plain: true })
             );
             res.render("homepage", {
+
                 post,
                 loggedIn: req.session.loggedIn,
+
             });
+            console.log("===============================")
+            console.log(Post)
         })
         .catch((err) => {
             console.log(err);
@@ -82,13 +98,17 @@ router.get("/", (req, res) => {
 
 // generate login page
 router.get("/login", (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
     res.render("login");
 });
 
 
 // generate signup page
-router.get("/signup", (req, res) => {
-    res.render("signup");
-});
+// router.get("/signup", (req, res) => {
+//     res.render("signup");
+// });
 
 module.exports = router;

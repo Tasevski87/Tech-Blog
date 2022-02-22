@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             console.log('email', email);
             console.log('password', password);
@@ -45,7 +45,7 @@ async function signupFormHandler(event) {
 
         // check the response status
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard/');
         } else {
             alert(response.statusText);
         }

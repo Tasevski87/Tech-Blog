@@ -5,11 +5,13 @@ const { Post, User, Comment } = require("../models");
 
 // get user data for dashboard-posts
 router.get("/", withAuth, (req, res) => {
+    console.log(req.session);
+    console.log('======================');
     Post.findAll({
         where: {
             user_id: req.session.user_id,
         },
-        // order: [["id", "DESC"]],
+        order: [["id", "DESC"]],
         attributes: [
             "id",
             "content",
@@ -88,4 +90,5 @@ router.get("/edit:id", withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-module.exports.router;
+
+module.exports = router;

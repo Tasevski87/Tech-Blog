@@ -6,6 +6,7 @@ const { Post, Comment, User } = require("../../models")
 
 //route get all posts 
 router.get("/", (req, res) => {
+    console.log('======================');
     Post.findAll({
         attributes: [
             'id',
@@ -34,8 +35,8 @@ router.get("/", (req, res) => {
                 attributes: ['username']
             }
         ]
-    }).then((dbpostData) => res.json(dbpostData))
-        .catch((err) => {
+    }).then(dbpostData => res.json(dbpostData))
+        .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
@@ -89,7 +90,7 @@ router.get("/:id", (req, res) => {
 });
 
 // POST api/post
-router.post("/", withAuth, (req, res) => {
+router.post("/",withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
         content: req.body.content,
@@ -103,10 +104,9 @@ router.post("/", withAuth, (req, res) => {
 });
 
 // PUT api/post/1
-router.put("/:id", withAuth, (req, res) => {
+router.put("/:id", (req, res) => {
     Post.update({
         title: req.body.title,
-        content:req.body.content,
     },
         {
             where: {
@@ -127,7 +127,7 @@ router.put("/:id", withAuth, (req, res) => {
 });
 
 // DELETE api/post/1
-router.delete("/:id", (req, res) => {
+router.delete("/:id",withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id,
