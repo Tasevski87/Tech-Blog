@@ -106,9 +106,5 @@ router.get("/login", (req, res) => {
 });
 
 
-// generate signup page
-// router.get("/signup", (req, res) => {
-//     res.render("signup");
-// });
 
 module.exports = router;

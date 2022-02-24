@@ -1,15 +1,16 @@
+// import important parts of sequelize library
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require('bcrypt')
 
+// Initialize model (table) by extending off Sequelize's Model class
 class User extends Model {
     checkPassword(loginPwd) {
         return bcrypt.compareSync(loginPwd, this.password)
     }
 }
 
-
-
+// set up fields and rules for model
 User.init(
     {
         id: {

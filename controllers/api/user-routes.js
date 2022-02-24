@@ -56,7 +56,7 @@ router.post("/", (req, res) => {
         });
 });
 
-
+// login route
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
@@ -80,6 +80,7 @@ router.post('/login', (req, res) => {
         });
     });
 });
+
 // logout route
 router.post("/logout", (req, res) => {
     // res.json({ message: "You are now logged out!" });
