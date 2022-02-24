@@ -1,89 +1,148 @@
 //post route
 const router = require("express").Router();
-
+const withAuth = require("../../utils/auth");
 const { Post, Comment, User } = require("../../models")
-// const sequelize = require("../../config/connection")
+
 
 //route get all posts 
-
 router.get("/", (req, res) => {
+    console.log('======================');
     Post.findAll({
-        include: [Comment, User]
-    }).then((dbpostData) => res.json(dbpostData))
-        .catch((err) => {
+        attributes: [
+            'id',
+            'content',
+            'title',
+            'created_at',
+        ],
+        order: [['created_at', 'DESC']],
+        include: [
+            {
+                model: Comment,
+                attributes: [
+                    'id',
+                    'comment_text',
+                    'post_id',
+                    'user_id',
+                    'created_at',
+                ],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    }).then(dbpostData => res.json(dbpostData))
+        .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
 
+// GET api/post/1
 router.get("/:id", (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id,
         },
-        include: [Comment],
+        attributes: [
+            'id',
+            'content',
+            'title',
+            'created_at',
+        ],
+
+        include: [
+            {
+                model: Comment,
+                attributes: [
+                    'id',
+                    'comment_text',
+                    'post_id',
+                    'user_id',
+                    'created_at',
+                ],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
-        .then((dbpostData) => {
+        .then(dbpostData => {
             if (!dbpostData) {
-                res.status(404).json({ message: "No project found with this id" });
+                res.status(404).json({ message: "No post found with this id" });
                 return;
             }
             res.json(dbpostData);
         })
-        .catch((err) => {
+        .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
-router.post("/", (req, res) => {
+
+// POST api/post
+router.post("/",withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
         content: req.body.content,
-        user_id: req.user_id,
+        user_id: req.session.user_id,
     })
-        .then((dbpostData) => res.json(dbpostData))
-        .catch((err) => {
+        .then(dbpostData => res.json(dbpostData))
+        .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
 
+// PUT api/post/1
 router.put("/:id", (req, res) => {
-    Post.update(req.body, {
-        where: {
-            id: req.params.id,
-        },
-    })
-        .then((dbpostData) => {
-            if (!dbpostData[0]) {
-                res.status(404).json({ message: "No project found with this id" });
+    Post.update({
+        title: req.body.title,
+    },
+        {
+            where: {
+                id: req.params.id,
+            }
+        })
+        .then(dbpostData => {
+            if (!dbpostData) {
+                res.status(404).json({ message: "No post found with this id" });
                 return;
             }
             res.json(dbpostData);
         })
-        .catch((err) => {
+        .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
 
-router.delete("/:id", (req, res) => {
+// DELETE api/post/1
+router.delete("/:id",withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id,
         },
     })
-        .then((dbpostData) => {
-            if (!dbpostData) {
-                res.status(404).json({ message: "No project found with this id" });
+        .then((dbUserData) => {
+            if (!dbUserData) {
+                res.status(404).json({ message: "No post found with this id" });
                 return;
             }
-            res.json(dbpostData);
+            res.json(dbUserData);
         })
         .catch((err) => {
             console.log(err);
             res.status(500).json(err);
         });
 });
-
 module.exports = router;
