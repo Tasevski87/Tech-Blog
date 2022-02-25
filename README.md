@@ -20,7 +20,7 @@ Tech Blog it is a CMS-style blog site, where developers can create username and 
 
 [Screencastify video](#Screencastify video)
 
-[Heroku link](#Heroku link)
+[Heroku link](#Heroku)
 
 [GitHub](#GitHub)
 
@@ -55,7 +55,7 @@ This project is school assignment and contributors were not allowed. The project
 ## Screencastify video of
 Here is Link for the video:
 
-## Heroku link
+## Heroku link:
 Here is Heroku link:
 
 ## GitHub
@@ -66,4 +66,4 @@ https://github.com/Tasevski87
 ## GitHub-Repo
 Tech Blog
 
-https://github.com/Tasevski87/Tech-Blog
+https://github.com/Tasevski87/Tech Blog
