@@ -3,6 +3,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require('bcrypt')
 
+
 // Initialize model (table) by extending off Sequelize's Model class
 class User extends Model {
     checkPassword(loginPwd) {
