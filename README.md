@@ -18,9 +18,9 @@ Tech Blog it is a CMS-style blog site, where developers can create username and 
 
 [Badge](#Badge)
 
-[Screencastify video](#Screencastify video)
+[Screencastify video](#Video)
 
-[Heroku link](#Heroku)
+[Heroku](#Heroku)
 
 [GitHub](#GitHub)
 
@@ -55,7 +55,7 @@ This project is school assignment and contributors were not allowed. The project
 ## Screencastify video 
 Here is Link for the video:
 
-## Heroku link
+## Heroku
 Here is Heroku link:
 
 ## GitHub
