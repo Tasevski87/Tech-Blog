@@ -18,9 +18,9 @@ Tech Blog it is a CMS-style blog site, where developers can create username and 
 
 [Badge](#Badge)
 
-[Screencastify video](#Video)
+[Screencastify video](#Screencastify video)
 
-[Heroku link](#Heroku)
+[Heroku link](#Heroku link)
 
 [GitHub](#GitHub)
 
@@ -52,10 +52,10 @@ This project is school assignment and contributors were not allowed. The project
 ## Badge
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Screencastify video of application:
+## Screencastify video of
 Here is Link for the video:
 
-## Heroku link:
+## Heroku link
 Here is Heroku link:
 
 ## GitHub
@@ -66,4 +66,4 @@ https://github.com/Tasevski87
 ## GitHub-Repo
 Tech Blog
 
-https://github.com/Tasevski87/Tech Blog
+https://github.com/Tasevski87/Tech-Blog
