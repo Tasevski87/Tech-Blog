@@ -104,6 +104,10 @@ router.get("/login", (req, res) => {
     }
     res.render("login");
 });
+//generate signup
+router.get("/signup", (req, res) => {
+    res.render("signup");
+});
 
 
 

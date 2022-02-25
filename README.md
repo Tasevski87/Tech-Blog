@@ -56,7 +56,8 @@ This project is school assignment and contributors were not allowed. The project
 Here is Link for the video:
 
 ## Heroku
-Here is Heroku link: link
+Here is Heroku link:
+https://techblogapp888.herokuapp.com/
 
 ## GitHub
 Tasevski87
