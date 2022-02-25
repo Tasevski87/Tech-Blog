@@ -52,11 +52,11 @@ This project is school assignment and contributors were not allowed. The project
 ## Badge
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Screencastify video 
+## Screencastify
 Here is Link for the video:
 
 ## Heroku
-Here is Heroku link:
+Here is Heroku link: link
 
 ## GitHub
 Tasevski87
