@@ -18,7 +18,7 @@ Tech Blog it is a CMS-style blog site, where developers can create username and 
 
 [Badge](#Badge)
 
-[Screencastify video](#Video)
+[Screencastify](#Screencastify)
 
 [Heroku](#Heroku)
 
