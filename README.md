@@ -18,8 +18,6 @@ Tech Blog it is a CMS-style blog site, where developers can create username and 
 
 [Badge](#Badge)
 
-[Screencastify](#Screencastify)
-
 [Heroku](#Heroku)
 
 [GitHub](#GitHub)
@@ -46,6 +44,8 @@ HTML, JavaScript, Node, Sequelize, mysql, mysql2, Express, Express-session, Expr
 ## Tests
 Testing was done with Insomnia application. Here is example:
 
+![Untitled_ Feb 25, 2022 2_30 PM](https://user-images.githubusercontent.com/91975394/155781340-9eb4e1d5-17af-4ec9-90cf-b24ce6ea729c.gif)
+
 ## Contributors
 This project is school assignment and contributors were not allowed. The project is public and in the future contributors will be welcome.
 
@@ -53,7 +53,8 @@ This project is school assignment and contributors were not allowed. The project
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Screencastify
-Here is Link for the video:
+Here is Link of the video:
+https://drive.google.com/file/d/1KDOd1uC-sOPtent608_qWnQ-gmBsmcEx/view
 
 ## Heroku
 Here is Heroku link:
