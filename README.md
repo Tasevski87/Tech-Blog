@@ -32,6 +32,8 @@ In order to install Tech Blog  app user need to download our code from GitHub, i
 ## Usage
 Here is video example of the application in use:
 
+ https://drive.google.com/file/d/1KDOd1uC-sOPtent608_qWnQ-gmBsmcEx/view
+
 ## Credits
 This project is school assignment and it was individual project. The project is public and in the future collaborators are welcome.
 
@@ -51,10 +53,6 @@ This project is school assignment and contributors were not allowed. The project
 
 ## Badge
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
-## Screencastify
-Here is Link of the video:
-https://drive.google.com/file/d/1KDOd1uC-sOPtent608_qWnQ-gmBsmcEx/view
 
 ## Heroku
 Here is Heroku link:
